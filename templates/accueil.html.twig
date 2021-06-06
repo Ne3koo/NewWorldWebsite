@@ -6,9 +6,7 @@
 
         <h2>Accueil</h2>
 
-        {# <button><a href="{{ path('create_article') }}">Ajouter un article</a></button> #}
-
-        {# <button><a href="{{ path('delete_article') }}">Ajouter un article</a></button> #}
+        <button><a href="{{ path('article_create') }}">Ajouter un article</a></button>
 
         <section>
         {% for article in articles %}
@@ -24,11 +22,18 @@
 
              <span>Mot clé de recherche :{{ article.subcategories.name }}</span>
 
+             <button><a href="{{ path('article', {'id':article.id}) }}">Voir plus</a></button>
+
+             <button><a href="{{ path('article_delete',{'id':a.id}) }}">Supprimer l'article</a></button>
+
+             <button><a href="{{ path('article_update',{'id':a.id}) }}">Modifier l'article</a></button>
+
             </article>
         {% endfor %}
+        
         </section>
 
-        {# <button><a href="{{ path('update_article') }}">Modifier l'article</a></button> #}
+        
 
 
     </main>

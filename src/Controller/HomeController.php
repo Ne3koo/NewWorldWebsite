@@ -24,5 +24,16 @@ class HomeController extends AbstractController
 
     }
 
+    /**
+    * @Route("/article/{id}", name="article")
+    */
+
+    public function article(ArticleRepository $articleRepository, $id){
+        //Ici read du CRUD
+
+        $articles = $articleRepository->findOneBy(['id' => $id]);
+
+        return $this->render('article.html.twig', ['article' => $articles]);
+    }
     
 }

@@ -28,7 +28,7 @@ class Article
     private $content;
 
     /**
-     * @ORM\Column(type="date")
+     * @ORM\Column(type="datetime")
      */
     private $date;
 

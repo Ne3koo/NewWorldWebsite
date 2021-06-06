@@ -1,0 +1,90 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+
+    <main>
+
+        <h2>Création d'un article :</h2>
+
+    {{ form_start(formulaire) }}
+
+        <div>
+        {{ form_label(formulaire.title,"Titre") }}
+        {{ form_widget(formulaire.title) }}
+        </div>
+
+        <div>
+        {{ form_label(formulaire.content,"Paragraphe 01") }}
+        {{ form_widget(formulaire.content) }}
+        </div>
+
+        <div>
+        {{ form_label(formulaire.image,"Image 01 (Optionnel)") }}
+        {{ form_widget(formulaire.image) }}
+        </div>
+
+        <div>
+        {{ form_label(formulaire.title2,"Second Titre (Optionnel)") }}
+        {{ form_widget(formulaire.title2) }}
+        </div>
+
+        <div>
+        {{ form_label(formulaire.Content2,"Paragraphe 02") }}
+        {{ form_widget(formulaire.Content2) }}
+        </div>
+
+        <div>
+        {{ form_label(formulaire.image2,"Image 02") }}
+        {{ form_widget(formulaire.image2) }}
+        </div>
+
+        <div>
+        {{ form_label(formulaire.title3,"Troisième Titre (Optionnel)") }}
+        {{ form_widget(formulaire.title3) }}
+        </div>
+
+        <div>
+        {{ form_label(formulaire.Content3,"Paragraphe 03 (Optionnel)") }}
+        {{ form_widget(formulaire.Content3) }}
+        </div>
+
+        <div>
+        {{ form_label(formulaire.image3,"Image 03 (Optionnel)") }}
+        {{ form_widget(formulaire.image3) }}
+        </div>
+
+        <div>
+        {{ form_label(formulaire.title4,"Quatrième Titre (Optionnel)") }}
+        {{ form_widget(formulaire.title4) }}
+        </div>
+
+        <div>
+        {{ form_label(formulaire.Content4,"Paragraphe 04 (Optionnel)") }}
+        {{ form_widget(formulaire.Content4) }}
+        </div>
+
+        <div>
+        {{ form_label(formulaire.image4,"Image 04 (Optionnel)") }}
+        {{ form_widget(formulaire.image4) }}
+        </div>
+
+        <div>
+        {{ form_label(formulaire.title5,"Cinquième Titre (Optionnel)") }}
+        {{ form_widget(formulaire.title5) }}
+        </div>
+
+        <div>
+        {{ form_label(formulaire.Content5,"Paragraphe 05 (Optionnel)") }}
+        {{ form_widget(formulaire.Content5) }}
+        </div>
+
+        <div>
+        <button type="submit">Enregistrer</button>
+        </div>
+
+    {{ form_end(formulaire) }}
+
+
+    </main>
+
+{% endblock %}

@@ -7,16 +7,34 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
+            <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/reset.css') }}">
         {% endblock %}
 
         {% block javascripts %}
+        <script src="{{ asset('assets/js/index.js') }}"></script>
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
     <body>
         {% block body %}
-            {# <header></header> #}
+            <header>
+                <div class="left"><img src="{{ asset('assets/image/logo_Ne3ko.png') }}" alt="Ne3ko's face" width="400"></div>
+
+                <div class="center"><h1 class="h1">Welcome to Ne3ko's guide on New World !</h1></div>
+
+                <div class="right">
+                    <nav>
+                        <ul class="flex">
+                            <li id="li"><a href="{{ path('article_create') }}">Ajouter un article</a></li>
+                            <li id="li"><a href="#">Espace admin</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="clear"></div>
+            </header>
             {% block content %}{% endblock %}
+            <button id="btn">Retour vers le haut</button>
             {# <footer></footer> #}
         {% endblock %}
     </body>

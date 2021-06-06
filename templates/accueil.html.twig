@@ -16,17 +16,19 @@
 
              <p>{{ article.content }}</p>
 
-             <img src="{{ asset('assets/media/img') ~ article.image }}" alt="">
+             <img src="{{ asset('assets/image' ~ article.image) }}" alt="" width="300">
 
              <span>Catégorie de l'article :{{ article.subcategories.category.name }}</span>
 
              <span>Mot clé de recherche :{{ article.subcategories.name }}</span>
 
+             <br>
+
              <button><a href="{{ path('article', {'id':article.id}) }}">Voir plus</a></button>
 
-             <button><a href="{{ path('article_delete',{'id':article.id}) }}">Supprimer l'article</a></button>
+             <button><a href="{{ path('article_delete', {'id':article.id}) }}">Supprimer l'article</a></button>
 
-             <button><a href="{{ path('article_update',{'id':article.id}) }}">Modifier l'article</a></button>
+             <button><a href="{{ path('article_update', {'id':article.id}) }}">Modifier l'article</a></button>
 
             </article>
         {% endfor %}

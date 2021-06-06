@@ -24,9 +24,9 @@
 
              <button><a href="{{ path('article', {'id':article.id}) }}">Voir plus</a></button>
 
-             <button><a href="{{ path('article_delete',{'id':a.id}) }}">Supprimer l'article</a></button>
+             <button><a href="{{ path('article_delete',{'id':article.id}) }}">Supprimer l'article</a></button>
 
-             <button><a href="{{ path('article_update',{'id':a.id}) }}">Modifier l'article</a></button>
+             <button><a href="{{ path('article_update',{'id':article.id}) }}">Modifier l'article</a></button>
 
             </article>
         {% endfor %}

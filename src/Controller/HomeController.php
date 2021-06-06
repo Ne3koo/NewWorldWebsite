@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -61,5 +62,38 @@ class HomeController extends AbstractController
 
         return $this->redirectToRoute('accueil');
 
+    }
+
+    /**
+     * @Route("/update/{id}", name="article_update")
+     *
+     * Pour modifier un article
+     */
+    public function adminUpdateArticle(ArticleRepository $articleRepository, $id, EntityManagerInterface
+    $entityManager, Request $request)
+    {
+
+        $article = $articleRepository->find($id);
+
+        // représentation abstraite du formulaire
+        $form = $this->createForm(ArticleType::class,$article);
+
+        $form->handleRequest($request);
+
+        // traitement après soumission du formulaire
+        // vérification de la soumission du formulaire + vérifier si formulaire valide
+        if($form->isSubmitted() && $form->isValid()){
+
+            $entityManager->persist($article);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('accueil');
+
+        }
+
+
+        return $this->render('article_update.html.twig',[
+            'formulaire' => $form->createView()
+        ]);
     }
 }

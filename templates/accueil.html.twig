@@ -6,7 +6,9 @@
 
         <h2>Accueil</h2>
 
-        <button><a href="{{ path('create_article') }}">Ajouter un article</a></button>
+        {# <button><a href="{{ path('create_article') }}">Ajouter un article</a></button> #}
+
+        {# <button><a href="{{ path('delete_article') }}">Ajouter un article</a></button> #}
 
         <section>
         {% for article in articles %}
@@ -17,14 +19,16 @@
              <p>{{ article.content }}</p>
 
              <img src="{{ asset('assets/media/img') ~ article.image }}" alt="">
-             
-             {# <span>{{ article.category.sub_category.name }}</span> #}
+
+             <span>Catégorie de l'article :{{ article.subcategories.category.name }}</span>
+
+             <span>Mot clé de recherche :{{ article.subcategories.name }}</span>
 
             </article>
         {% endfor %}
         </section>
 
-        <button><a href="{{ path('update_article') }}">Modifier l'article</a></button>
+        {# <button><a href="{{ path('update_article') }}">Modifier l'article</a></button> #}
 
 
     </main>

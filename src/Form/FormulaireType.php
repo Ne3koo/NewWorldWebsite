@@ -3,6 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Article;
+use App\Entity\Category;
+use App\Entity\SubCategory;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -27,7 +30,10 @@ class FormulaireType extends AbstractType
             ->add('title3')
             ->add('title4')
             ->add('title5')
-            ->add('subCategories')
+            ->add('subCategories',EntityType::class,[
+                'class' => SubCategory::class,
+                'choice_label' => 'name'
+            ])
         ;
     }
 

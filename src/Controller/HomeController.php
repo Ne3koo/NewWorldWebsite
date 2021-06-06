@@ -4,6 +4,8 @@
 namespace App\Controller;
 
 
+use App\Entity\Article;
+use App\Form\FormulaireType;
 use App\Repository\ArticleRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -69,14 +71,14 @@ class HomeController extends AbstractController
      *
      * Pour modifier un article
      */
-    public function adminUpdateArticle(ArticleRepository $articleRepository, $id, EntityManagerInterface
+    public function update(ArticleRepository $articleRepository, $id, EntityManagerInterface
     $entityManager, Request $request)
     {
 
         $article = $articleRepository->find($id);
 
         // représentation abstraite du formulaire
-        $form = $this->createForm(ArticleType::class,$article);
+        $form = $this->createForm(FormulaireType::class,$article);
 
         $form->handleRequest($request);
 
@@ -95,5 +97,43 @@ class HomeController extends AbstractController
         return $this->render('article_update.html.twig',[
             'formulaire' => $form->createView()
         ]);
+    }
+
+    /**
+     *
+     * CRÉER UNE MÉTHODE + UN TWIG POUR AJOUTER UN NOUVEL ARTICLE
+     *
+     */
+
+    /**
+     * @Route("/create", name="article_create")
+     *
+     * Permet de créer un article
+     */
+    public function create(Request $request, EntityManagerInterface $entityManager)
+    {
+
+        $article = new Article();
+
+        // représentation abstraite du formulaire
+        $form = $this->createForm(FormulaireType::class,$article);
+
+        $form->handleRequest($request);
+
+        // traitement après soumission du formulaire
+        // vérification de la soumission du formulaire + vérifier si formulaire valide
+        if($form->isSubmitted() && $form->isValid()){
+
+            $entityManager->persist($article);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('accueil');
+
+        }
+
+        return $this->render('article_create.html.twig',[
+            'formulaire' => $form->createView() // représentation visuelle du formulaire
+        ]);
+
     }
 }

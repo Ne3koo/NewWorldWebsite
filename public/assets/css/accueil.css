@@ -1,0 +1,22 @@
+/* Accueil */
+#article{
+    background: linear-gradient(#141e30, #243b55);
+    opacity: 0.90;
+    display: block;
+    justify-content: space-around;
+    margin: 30px;
+}
+article img{
+    padding: 30px;
+    width: 40%;
+}
+article button{
+    margin: 25px;
+    max-width: 100%;
+    background: linear-gradient(#4c2072, #421c9b);
+    border:1px solid #141e30;
+    color: #A68C86;
+    border-radius: 20px;
+    text-transform: uppercase;
+    z-index: 2;
+}

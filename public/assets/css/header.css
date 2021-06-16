@@ -1,0 +1,15 @@
+/* Header */
+header{
+    background: linear-gradient(#141e30, #243b55);
+    z-index: 1;
+    opacity: 0.95;
+}
+
+header nav{
+   
+}
+
+header img{
+    padding-top: 20px;
+    width: 400px;
+}

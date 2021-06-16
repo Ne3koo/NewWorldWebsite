@@ -7,8 +7,14 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
-            <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
             <link rel="stylesheet" href="{{ asset('assets/css/reset.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/menu_burger.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/header.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/body.css') }}">
+            <link rel="stylesheet" href="{{ asset('assets/css/accueil.css') }}">
+            
         {% endblock %}
 
         {% block javascripts %}
@@ -18,24 +24,61 @@
     </head>
     <body>
         {% block body %}
-            <header>
-                <div class="left"><img src="{{ asset('assets/image/logo_Ne3ko.png') }}" alt="Ne3ko's face" width="400"></div>
+        {# Header #}
+            <header id="header">
+                <div class="right"><img src="{{ asset('assets/image/logo_Ne3ko.png') }}" alt="Ne3ko's face" width="400"></div>
 
-                <div class="center"><h1 class="h1">Welcome to Ne3ko's guide on New World !</h1></div>
+                <div class="center" id="haut"><h1 class="h1">Welcome to Ne3ko's guide on New World !</h1></div>
 
-                <div class="right">
+                <div class="clear"></div>
+            </header>
+
+            {# Menu Burger #}
+            <nav role="navigation">
+                <div id="menuToggle">
+                    <input type="checkbox" />
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <ul id="menu">
+                        <a href="{{ path('article_create') }}"><li>Ajouter un article</li></a>
+                        <a href="#"><li>Espace Admin</li></a>
+                        <a href="https://github.com/Ne3koo"><li>GitHub</li></a>
+                        <a href="https://www.linkedin.com/in/julien-flament-a442b197/"><li>LinkedIn</li></a>
+                    </ul>
+                </div>
+            </nav>
+
+            {# Main #}
+            {% block content %}{% endblock %}
+            
+            {# Retour en haut de page #}
+            <div><a id="cRetour" class="cInvisible" href="#haut"></a></div>
+
+            {# Footer #}
+            <footer id="footer">
+
+                <div class="center">
+                    <h2 class="h1">Retrouvez mes réseaux GitHub et LinkedIn !</h2>
+                </div>
+
+                <div class="left">
                     <nav>
                         <ul class="flex">
-                            <li id="li"><a href="{{ path('article_create') }}">Ajouter un article</a></li>
-                            <li id="li"><a href="#">Espace admin</a></li>
+                            <li id=""> <a href="https://github.com/Ne3koo"><img id="width" src="{{ asset('assets/image/github.png') }}" alt="Lien GitHub"><a href="https://github.com/Ne3koo"></a> </li>
+                            <li id=""> <a href="https://www.linkedin.com/in/julien-flament-a442b197/"><img id="width2" src="{{ asset('assets/image/linkedin.png') }}" alt="Lien LinkedIn"></a> </li>
                         </ul>
                     </nav>
                 </div>
+
+                <div class="right">
+
+                </div>
+
                 <div class="clear"></div>
-            </header>
-            {% block content %}{% endblock %}
-            <button id="btn">Retour vers le haut</button>
-            {# <footer></footer> #}
+            </footer>
         {% endblock %}
     </body>
 </html>

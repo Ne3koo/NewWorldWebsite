@@ -1,0 +1,47 @@
+/* Body */
+body {
+    position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+        height: 100%;
+        margin:0;
+        padding:0;
+        background-size: 100% ;
+        width:100%;  
+        color:black;
+        font-family: 'Kiwi Maru', serif;
+    }
+
+body:before {
+        content: "";
+        position: fixed;
+        height: 100%; width: 100%;
+        background-image: url(../image/bkg_body.jpg);
+        background-size: cover;
+        z-index: -1;
+        filter: blur(0px);
+        -webkit-background-size: cover; /* pour Chrome et Safari */
+        -moz-background-size: cover; /* pour Firefox */
+        -o-background-size: cover; /* pour Opera */
+        background-size: cover;
+    }
+
+
+    a:link{
+        text-decoration: none;
+    }
+    button:hover{
+        background-image:url(../image/chat-image-animee-0043.gif);
+        background-repeat:no-repeat;
+        text-decoration:none;
+    }
+    a{
+        color: black;
+        justify-content: space-between;
+        width: 100px;
+    }
+
+    /* Main */
+main{
+    padding-bottom: 150px;
+    padding-top: 150px;
+}

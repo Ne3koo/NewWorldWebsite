@@ -8,7 +8,7 @@
         
             <h2 class="center" id="h2">Accueil</h2>
 
-            <button class="right" id="create"><a href="{{ path('article_create') }}">Ajouter un article</a></button>
+            <button class="right" id="add_article"><a href="{{ path('article_create') }}">Ajouter un article</a></button>
 
         </div>
 
@@ -16,33 +16,34 @@
         {% for article in articles %}
             <article id="article">
 
-             <h3 id="h3">{{ article.title }}</h3>
+                <h3 id="h3">{{ article.title }}</h3>
 
-             <p id="onleft">{{ article.content }}</p>
+                <p id="onleft" class="p">{{ article.content }}</p>
 
-             <img src="{{ asset('assets/image' ~ article.image) }}" alt="">
+                <img src="{{ asset('./assets/image/') ~ article.image }}" alt="">
 
-             <br>
+                <br>
 
-             <span>Catégorie de l'article :{{ article.subcategories.category.name }}</span>
+                <span class="span">Catégorie de l'article : {{ article.subcategories.category.name }}</span>
 
-             <span>Mot clé de recherche :{{ article.subcategories.name }}</span>
+                <span class="span">Mot clé de recherche : {{ article.subcategories.name }}</span>
 
-             <br>
+                <br>
 
-             <button><a href="{{ path('article', {'id':article.id}) }}">Voir plus</a></button>
+                <div class="">
 
-             <button><a href="{{ path('article_delete', {'id':article.id}) }}">Supprimer l'article</a></button>
+                    <button><a href="{{ path('article', {'id':article.id}) }}">Voir plus</a></button>
 
-             <button><a href="{{ path('article_update', {'id':article.id}) }}">Modifier l'article</a></button>
+                    <button><a href="{{ path('article_delete', {'id':article.id}) }}">Supprimer l'article</a></button>
+
+                    <button><a href="{{ path('article_update', {'id':article.id}) }}">Modifier l'article</a></button>
+
+                </div>
 
             </article>
         {% endfor %}
         
         </section>
-
-        
-
 
     </main>
 
